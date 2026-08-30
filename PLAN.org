@@ -1,0 +1,79 @@
+#+TITLE: claude-statusline
+#+TODO: TODO DOING | DONE SKIP
+
+* Goal
+  Portable Claude statusline.
+  Clone, run install.sh, done.
+
+* Decision
+  Keep ccstatusline.
+  Version its config here.
+  Rejected: hand-rolled bash
+  from the gist. It would
+  re-implement weekly usage,
+  git caching and flex layout
+  that ccstatusline ships.
+
+* Tasks
+** DONE 1. Scaffold repo
+   v: git init + layout
+** DONE 2. Capture live config
+   v: diff vs live = empty
+** DONE 3. Time npx startup
+   v: numbers in Notes
+** DONE 4. context-bar + timer
+   v: render shows both
+** DONE 5. code-velocity.sh
+   v: JSON in, "+156 -23" out
+** DONE 6. install.sh
+   v: readlink -> this repo
+** DONE 7. README
+   v: fresh-machine steps
+** DONE 8. Render test
+   v: 2 lines, no escapes
+** DOING 9. Commit
+   v: clean git log
+** TODO 10. Publish to GitHub
+   v: needs your OK first
+
+* Notes
+  - ccstatusline 2.2.27
+  - live cfg: 2 lines,
+    16 widgets
+  - unused widgets worth
+    having:
+    context-bar
+    weekly-reset-timer
+    cache-hit-rate
+    output-speed
+    git-ahead-behind
+  - no widget for lines
+    added/removed -> task 5
+
+* Timing (task 3)
+  before (npx @latest): ~590ms
+  after  (vendored)   : ~220ms
+  saved ~370 ms on every
+  status line redraw
+
+* Log
+  22:11 repo scaffolded
+  22:14 config captured
+  22:16 npx overhead measured
+  22:18 context-bar +
+        weekly-reset-timer
+        render OK
+  22:18 live cfg symlinked
+        (backup kept)
+  22:22 velocity widget OK,
+        hides at zero
+  22:24 install.sh green,
+        settings.json patch
+        kept every other key
+  22:28 render 91/123 cols
+        at 137, truncates
+        cleanly at 80
+  22:30 fixed: installer
+        backed up on every
+        rerun. Now writes
+        only on change.

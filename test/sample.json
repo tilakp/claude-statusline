@@ -1,0 +1,37 @@
+{
+  "cwd": "/Users/tilak/workspace/claude-statusline",
+  "session_id": "sample-session",
+  "transcript_path": "/dev/null",
+  "model": { "id": "claude-opus-5", "display_name": "Opus" },
+  "workspace": {
+    "current_dir": "/Users/tilak/workspace/claude-statusline",
+    "project_dir": "/Users/tilak/workspace/claude-statusline"
+  },
+  "version": "2.1.90",
+  "output_style": { "name": "default" },
+  "cost": {
+    "total_cost_usd": 1.2345,
+    "total_duration_ms": 725000,
+    "total_api_duration_ms": 91000,
+    "total_lines_added": 156,
+    "total_lines_removed": 23
+  },
+  "context_window": {
+    "total_input_tokens": 84000,
+    "total_output_tokens": 9200,
+    "context_window_size": 200000,
+    "used_percentage": 47,
+    "remaining_percentage": 53,
+    "current_usage": {
+      "input_tokens": 8500,
+      "output_tokens": 1200,
+      "cache_creation_input_tokens": 5000,
+      "cache_read_input_tokens": 62000
+    }
+  },
+  "exceeds_200k_tokens": false,
+  "rate_limits": {
+    "five_hour": { "used_percentage": 23.5, "resets_at": 4102444800 },
+    "seven_day": { "used_percentage": 41.2, "resets_at": 4102444800 }
+  }
+}
