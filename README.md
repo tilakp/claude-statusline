@@ -3,11 +3,14 @@
 My Claude Code status line, versioned so every machine gets the same one.
 
 ```
-~/workspace/claude-statusline | Opus | ⎇ main | (+3,-1) | +156 -23
-[██████░░░░░░░░░░] 76k/200k (38%) | Block: 42m | Session: 23.5% | Weekly Sonnet: 12% | Weekly Opus: 41% | Weekly Reset: 3d
+~/workspace/claude-statusline | Opus | ⎇ main | (+7,-12) | Δ156/23
+[██████░░░░░░░░░░] 76k/200k (38%) | Block: 25m | Session: 15.0% | Weekly: 73.0% | Weekly Reset: 1d 3hr 34m
 ```
 
 Line 1 is where you are. Line 2 is what you have left.
+
+The two counts on line 1 are not the same thing. `(+7,-12)` is the uncommitted
+working tree. `Δ156/23` is what Claude wrote during this session.
 
 ## Install
 
@@ -58,7 +61,20 @@ each time. Bump `CCSTATUSLINE_VERSION` in `install.sh` to upgrade.
 Claude Code reports `cost.total_lines_added` and `cost.total_lines_removed`;
 nothing built in shows them. It is wired in as a `custom-command` widget and
 prints nothing when no lines have changed, so it disappears instead of showing
-`+0 -0`. No `jq` dependency.
+`Δ0/0`. No `jq` dependency.
+
+**Weekly usage is the aggregate, not the per-model split.** `weekly-sonnet-usage`
+and `weekly-opus-usage` look useful but the usage API returns 0 for both on this
+account, while the aggregate reports the real figure:
+
+```
+$ cat ~/.cache/ccstatusline/usage.json
+{"weeklyUsage":73, ..., "weeklySonnetUsage":0,"weeklyOpusUsage":0}
+```
+
+A permanent, believable `0.0%` is worse than no widget, so line 2 uses
+`weekly-usage`. Check that cache before trusting a usage number that looks
+wrong; the per-model fields appear to be populated only on some plans.
 
 ## Editing the status line
 
