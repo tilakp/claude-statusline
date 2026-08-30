@@ -31,10 +31,12 @@
    v: fresh-machine steps
 ** DONE 8. Render test
    v: 2 lines, no escapes
-** DOING 9. Commit
+** DONE 9. Commit
    v: clean git log
-** TODO 10. Publish to GitHub
-   v: needs your OK first
+** DONE 10. Publish to GitHub
+   v: github.com/tilakp/
+      claude-statusline
+      public, main pushed
 
 * Notes
   - ccstatusline 2.2.27
@@ -77,3 +79,6 @@
         backed up on every
         rerun. Now writes
         only on change.
+  22:36 published public,
+        tracker pane closed.
+        All tasks done.
